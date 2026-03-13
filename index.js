@@ -2,6 +2,7 @@ import express from "express";
 import connectDb from './src/config/db.js'
 import userRouter from './src/routes/user.routes.js'
 import eventRouter from "./src/routes/event.routes.js"
+import listingRouter from './src/routes/listing.routes.js'
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
@@ -19,8 +20,9 @@ const PORT = process.env.PORT;
 app.use(express.json())
 app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 
-app.use('/users',userRouter);
+app.use('/users',userRouter)
 app.use("/event", eventRouter)
+app.use('/listing', listingRouter)
 
 app.listen(PORT,async()=>{
     console.log(`Server started at PORT : ${PORT}`)

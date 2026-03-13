@@ -16,8 +16,8 @@ async function getAllUser(req,res){
         let users = await User.find({});
         res.status(200).send(users)
     } catch (error) {
-        console.log("Error adding user : ", error)
-        res.status(400).send({"message":"User not found", "error" : error.message})
+        console.log("Error getting user : ", error)
+        res.status(400).send({"message":"Users not found", "error" : error.message})
     }
 }
 
