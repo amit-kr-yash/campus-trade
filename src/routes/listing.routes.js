@@ -1,11 +1,14 @@
 import express from 'express'
 const router = express.Router();
 
-import {addListing, getListing} from '../controllers/listing.controller.js'
+import {addListing, getListings, getListing, updateListing, updateListingImage} from '../controllers/listing.controller.js'
 import upload from "../middlewares/fileUpload.middleware.js";
 
-router.post('/',addListing)
-router.get('/', getListing)
+router.post('/',upload.single("image"), addListing)
+router.get('/', getListings)
+router.get('/:id',getListing)
+router.put('/:id',updateListing)
+router.put("/update-image/:id", upload.single("image") , updateListingImage)
 
 
 

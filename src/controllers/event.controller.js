@@ -3,7 +3,6 @@ import Event from "../models/event.model.js";
 
 async function addEvent(req, res){
     try {
-        // console.log(req)
         let newEvent = req.body
         newEvent.imageName = req.file.filename
 
